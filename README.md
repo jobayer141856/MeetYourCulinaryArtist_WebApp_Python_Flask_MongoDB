@@ -1,5 +1,5 @@
-# MeetHunger
-This web application is about chefs. People can work here as a freelancer chef. A chef can create account to provide service when there is a call for him/her at household or in any occasion. People can hire chef and post interesting recipes. There is a donate option, our volunteer will collect monthly and donate money to help the disadvantaged hungry people.
+#MeetYourCulinaryArtist
+This web application is about chefs. People can work here as a freelancer chef. A chef can create account to provide service when there is a call for him/her at household or in any occasion. People can hire chef and post interesting recipes.
 
 ## Functionalities
 ### User
@@ -7,13 +7,9 @@ This web application is about chefs. People can work here as a freelancer chef. 
 
 ▪ They can update account information and change account password.
 
-▪ They can also request chefs by skills, our system will notify them using email by matching skills.
+▪ They can also request chefs by skills, our system will notify them using email by searching city name and skill.
 
 ▪ They can also search a chef by location, see all our chefs and contact with chef.
-
-▪ They can also see chef’s location.
-
-▪ They can also donate food and financial aid via card or online payment system.
 
 ▪ They can also add blog, see others blog and delete their blog.
 
@@ -21,8 +17,6 @@ This web application is about chefs. People can work here as a freelancer chef. 
 
 ### Chef
 ▪ Chefs can create their professional chef account in the system.
-
-▪ They can donate food and financial aid via card or online payment system.
 
 ▪ They can get 24 hours support from system.
 
@@ -41,11 +35,9 @@ This web application is about chefs. People can work here as a freelancer chef. 
 
 ▪ System will support user 24 hours.
 
-▪ System will show all events organized by Meet Hunger.
+▪ System will show all events organized byMeetYourCulinaryArtist.
 
 ▪ System will show the user feedback through testimonial.
-
-▪ Admin Panel (Under Development)
 
 ## Technologies
 
