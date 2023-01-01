@@ -1,0 +1,21 @@
+*,*:after,*:before{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#multi_option{
+	max-width: 100%;
+	width: 350px;
+}
+label{
+	display:block;
+	font-size: 18px;
+	font-weight: 700;
+	margin-bottom: 5px;
+}
+.vscomp-toggle-button{
+	padding: 10px 30px 10px 10px;
+	border-radius: 5px;
+}

@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>MeetYourCulinaryArtist.</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="../static/img/favicon.png" rel="icon" />
+    <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="../static/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="../static/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="../static/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="../static/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="../static/vendor/swiper/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Template Main CSS File -->
+    <link href="../static/css/main.css" rel="stylesheet" />
+
+    <!-- =======================================================
+  * Template Name: Yummy - v1.1.0
+  * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+   <header id="header" class="header fixed-top d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-between">
+        <a href="/" class="logo d-flex align-items-center me-auto me-lg-0">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="../static/img/logo.png" alt=""> -->
+          <h1>MeetYour<span>CulinaryArtist.</span></h1>
+        </a>
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a href="/" id="home">Home</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/findachef">Find A Chef</a></li>
+            <li><a href="/aboutus">About</a></li>
+            <li><a href="/contactus">Contact</a></li>
+            {% if 'username' in session %}
+            <li class="dropdown">
+              <a href="#"
+                ><span>{{session["username"]}}</span>
+                <i class="bi bi-chevron-down dropdown-indicator"></i
+              ></a>
+              <ul>
+                <li><a href="/editprofile">Profile</a></li>
+                {% if chefx %}
+                 <li><a href="/chefthpost">Post Your Thoughts About Us</a></li>
+                 {% else %}
+                 <li><a href="/userthpost1">Post Your Thoughts About Us</a></li>
+                {% endif %}
+                <li><a href="/logout">Logout</a></li>
+              </ul>
+            </li>
+            {% else %}
+            <a class="btn-book-a-table" href="/login">Login</a>
+            {% endif %}
+
+          </ul>
+        </nav>
+        <!-- .navbar -->
+
+        <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+        <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="hero d-flex align-items-center section-bg">
+      <div class="container">
+        <div class="row justify-content-between gy-5">
+          <div
+            class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start"
+          >
+            <h2 data-aos="fade-up">Wellcome to<br />MeetHunger</h2>
+            <p data-aos="fade-up" data-aos-delay="100">
+              Where you can be a freelancer chef and you can hire a personal
+              chef
+            </p>
+            <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+              {% if chefx %}
+                <strong> You registered as a user and chef</strong>
+              {%else%}
+                   <a class="btn-book-a-table" href="/joinaschef">Join as a Chef</a>
+            {%endif%}
+
+              <a
+                href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                class="glightbox btn-watch-video d-flex align-items-center"
+                ><i class="bi bi-play-circle"></i><span>Watch Video</span></a
+              >
+            </div>
+          </div>
+          <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
+            <img
+              src="../static/img/hero-img.png"
+              class="img-fluid"
+              alt=""
+              data-aos="zoom-out"
+              data-aos-delay="300"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Hero Section -->
+
+    <main id="main">
+      <!-- ======= Stats Counter Section ======= -->
+      <section id="stats-counter" class="stats-counter">
+        <div class="container" data-aos="zoom-out">
+          <div class="row gy-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span
+                  data-purecounter-start="0"
+                  data-purecounter-end="{{chef}}"
+                  data-purecounter-duration="1"
+                  class="purecounter"
+                ></span>
+                <p>Chefs</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span
+                  data-purecounter-start="0"
+                  data-purecounter-end="5"
+                  data-purecounter-duration="1"
+                  class="purecounter"
+                ></span>
+                <p>Volunteers</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span
+                  data-purecounter-start="0"
+                  data-purecounter-end="{{user}}"
+                  data-purecounter-duration="1"
+                  class="purecounter"
+                ></span>
+                <p>Users</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span
+                  data-purecounter-start="0"
+                  data-purecounter-end="24"
+                  data-purecounter-duration="1"
+                  class="purecounter"
+                ></span>
+                <p>Hours Of Support</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+          </div>
+        </div>
+      </section>
+      <!-- End Stats Counter Section -->
+
+      <!-- ======= Testimonials Section ======= -->
+      <section id="testimonials" class="testimonials section-bg">
+        <div class="container" data-aos="fade-up">
+          <div class="section-header">
+            <h2>Testimonials</h2>
+            <p>What Are They <span>Saying About Us</span></p>
+          </div>
+
+          <div class="slides-1 swiper" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+              {% if cuser>=3 %}
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="row gy-4 justify-content-center">
+                    <div class="col-lg-6">
+                      <div class="testimonial-content">
+                        <p>
+                          <i class="bi bi-quote quote-icon-left"></i>
+                          {{desuser[0]}}
+                          <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
+                        <h3>{{nameuser[0]}}</h3>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 text-center">
+                      <img
+                        src="../static/img/testimonials/testimonials-1.jpg"
+                        class="img-fluid testimonial-img"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="row gy-4 justify-content-center">
+                    <div class="col-lg-6">
+                      <div class="testimonial-content">
+                        <p>
+                          <i class="bi bi-quote quote-icon-left"></i>
+                         {{desuser[1]}}
+                          <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
+                        <h3>{{nameuser[1]}}</h3>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 text-center">
+                      <img
+                        src="../static/img/testimonials/testimonials-1.jpg"
+                        class="img-fluid testimonial-img"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="row gy-4 justify-content-center">
+                    <div class="col-lg-6">
+                      <div class="testimonial-content">
+                        <p>
+                          <i class="bi bi-quote quote-icon-left"></i>
+                          {{desuser[2]}}
+                          <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
+                        <h3>{{nameuser[2]}}</h3>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 text-center">
+                      <img
+                        src="../static/img/testimonials/testimonials-1.jpg"
+                        class="img-fluid testimonial-img"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="row gy-4 justify-content-center">
+                    <div class="col-lg-6">
+                      <div class="testimonial-content">
+                        <p>
+                          <i class="bi bi-quote quote-icon-left"></i>
+                          {{desuser[3]}}
+                          <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
+                        <h3>{{nameuser[3]}}</h3>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 text-center">
+                      <img
+                        src="../static/img/testimonials/testimonials-1.jpg"
+                        class="img-fluid testimonial-img"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+              {%elif  cuser == 2%}
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="row gy-4 justify-content-center">
+                    <div class="col-lg-6">
+                      <div class="testimonial-content">
+                        <p>
+                          <i class="bi bi-quote quote-icon-left"></i>
+                          {{desuser[0]}}
+                          <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
+                        <h3>{{nameuser[0]}}</h3>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 text-center">
+                      <img
+                        src="../static/img/testimonials/testimonials-1.jpg"
+                        class="img-fluid testimonial-img"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="row gy-4 justify-content-center">
+                    <div class="col-lg-6">
+                      <div class="testimonial-content">
+                        <p>
+                          <i class="bi bi-quote quote-icon-left"></i>
+                         {{desuser[1]}}
+                          <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
+                        <h3>{{nameuser[1]}}</h3>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 text-center">
+                      <img
+                        src="../static/img/testimonials/testimonials-1.jpg"
+                        class="img-fluid testimonial-img"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+              {% elif cuser == 1 %}
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="row gy-4 justify-content-center">
+                    <div class="col-lg-6">
+                      <div class="testimonial-content">
+                        <p>
+                          <i class="bi bi-quote quote-icon-left"></i>
+                          {{desuser[0]}}
+                          <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
+                        <h3>{{nameuser[0]}}</h3>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 text-center">
+                      <img
+                        src="../static/img/testimonials/testimonials-1.jpg"
+                        class="img-fluid testimonial-img"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+              {%else%}
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="row gy-4 justify-content-center">
+                    <div class="col-lg-6">
+                      <div class="testimonial-content">
+                        <p>
+                          <i class="bi bi-quote quote-icon-left"></i>
+                          Its a greate platform for freelancer chef. Instead of
+                          being tied down to a restaurant and dinner rushes,
+                          freelance chefs can travel, determine their hours, and
+                          even set their rates.
+                          <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
+                        <h3>Sara Alex</h3>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 text-center">
+                      <img
+                        src="../static/img/testimonials/testimonials-1.jpg"
+                        class="img-fluid testimonial-img"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+              {%endif%}
+              <!-- End testimonial item -->
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+      <!-- End Testimonials Section -->
+
+      <!-- ======= Chefs Section ======= -->
+      <section id="chefs" class="chefs section-bg">
+        <div class="container" data-aos="fade-up">
+          <div class="section-header">
+            <h2>Chefs</h2>
+            <p>Our <span>Proffesional</span> Chefs</p>
+          </div>
+          
+          <div class="row gy-4">
+            {% if cchef >= 3%}
+            <div
+              class="col-lg-4 col-md-6 d-flex align-items-stretch"
+              data-aos="fade-up"
+              data-aos-delay="100"
+              > 
+              <div class="chef-member">
+                <div class="member-img">
+                  <img
+                    src="../static/img/chefs/chefs-1.jpg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>{{namechef[0]}}</h4>
+                  <span>{{skillchef[0]}}</span>
+                  <p>
+                    {{desschef[0]}}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- End Chefs Member -->
+
+            <div
+              class="col-lg-4 col-md-6 d-flex align-items-stretch"
+              data-aos="fade-up"
+              data-aos-delay="200"
+             >
+              <div class="chef-member">
+                <div class="member-img">
+                  <img
+                    src="../static/img/chefs/chef.jpg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>{{namechef[1]}}</h4>
+                  <span>{{skillchef[1]}}</span>
+                  <p>
+                    {{desschef[1]}}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- End Chefs Member -->
+
+              <div
+                class="col-lg-4 col-md-6 d-flex align-items-stretch"
+                data-aos="fade-up"
+                data-aos-delay="300"
+               >
+                <div class="chef-member">
+                 <div class="member-img">
+                    <img
+                      src="../static/img/chefs/chefs-1.jpg"
+                      class="img-fluid"
+                      alt=""
+                    />
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                <div class="member-info">
+                  <h4>{{namechef[2]}}</h4>
+                  <span>{{skillchef[2]}}</span>
+                  <p>
+                    {{deschef[2]}}
+                  </p>
+                 </div>
+                </div>
+              </div>
+            <!-- End Chefs Member -->
+            {%elif cchef == 2%}
+            <div
+                  class="col-lg-4 col-md-6 d-flex align-items-stretch"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                > 
+                  <div class="chef-member">
+                    <div class="member-img">
+                      <img
+                        src="../static/img/chefs/chefs-1.jpg"
+                        class="img-fluid"
+                        alt=""
+                      />
+                      <div class="social">
+                        <a href=""><i class="bi bi-twitter"></i></a>
+                        <a href=""><i class="bi bi-facebook"></i></a>
+                        <a href=""><i class="bi bi-instagram"></i></a>
+                        <a href=""><i class="bi bi-linkedin"></i></a>
+                      </div>
+                      </div>
+                    <div class="member-info">
+                      <h4>{{namechef[0]}}</h4>
+                      <span>{{skillchef[0]}}</span>
+                      <p>
+                        {{deschef[0]}}
+                      </p>
+                    </div>
+                  </div>
+              </div>
+                <!-- End Chefs Member -->
+            <div
+                class="col-lg-4 col-md-6 d-flex align-items-stretch"
+                data-aos="fade-up"
+                data-aos-delay="200"
+                >
+                    <div class="chef-member">
+                    <div class="member-img">
+                    <img
+                    src="../static/img/chefs/chefs-1.jpg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>{{namechef[1]}}</h4>
+                  <span>{{skillchef[1]}}</span>
+                  <p>
+                    {{deschef[1]}}
+                  </p>
+                </div>
+                </div>
+              </div>
+              <!-- End Chefs Member -->
+            {%elif cuser == 1%}
+              <div
+                  class="col-lg-4 col-md-6 d-flex align-items-stretch"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                > 
+                <div class="chef-member">
+                <div class="member-img">
+                  <img
+                    src="../static/img/chefs/cheffs-1.jpg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>{{namechef[0]}}</h4>
+                  <span>{{skillchef[0]}}</span>
+                  <p>
+                    {{deschef[0]}}
+                  </p>
+                </div>
+              </div>
+            </div>
+           <!-- End Chefs Member -->
+            {%else%}
+              <div
+                class="col-lg-4 col-md-6 d-flex align-items-stretch"
+                data-aos="fade-up"
+                data-aos-delay="100"
+                > 
+                <div class="chef-member">
+                  <div class="member-img">
+                    <img
+                      src="../static/img/chefs/chefs-1.jpg"
+                      class="img-fluid"
+                      alt=""
+                    />
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                  <div class="member-info">
+                    <h4>John Alex</h4>
+                    <span>Master Chef</span>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem nihil ut iure ipsa quaerat harum. Dignissimos, reprehenderit exercitationem architecto dolorum harum praesentium ipsam delectus commodi inventore. Pariatur commodi, sit quasi aperiam fugit, porro neque voluptate nulla rem perspiciatis quae, culpa mollitia blanditiis cum expedita! Hic voluptatibus voluptate id temporibus enim doloribus vel, ullam a autem nam veritatis dolorem laudantium? Voluptatibus, accusamus sapiente optio deleniti corporis eum impedit sunt amet nobis consectetur dolorum architecto laborum id maiores ducimus natus. Nostrum, suscipit?
+                    </p>
+                  </div>
+                </div>
+            </div>
+           <!-- End Chefs Member -->
+           {%endif%}
+           </div>
+      </section>
+      <!-- End Chefs Section -->
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+  {% include "footer.html" %}
+    <!-- End Footer -->
+
+    <a
+      href="#"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/vendor/aos/aos.js"></script>
+    <script src="../static/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="../static/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="../static/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+      document.getElementById('home').className = 'active'
+    </script>
+
+    <!-- Template Main JS File -->
+    <script src="../static/js/main.js"></script>
+  </body>
+</html>

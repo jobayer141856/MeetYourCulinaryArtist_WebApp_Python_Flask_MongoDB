@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MeetYourCulinaryArtist. - Chefs</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="" rel="icon" />
+    <link href="" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link rel="stylesheet" type="text/css" href="static/css/virtual-select.min.css">
+<!--    <link rel="stylesheet" type="text/css" href="static/css/style.css">-->
+    <link
+      href="../static/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="../static/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="../static/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="../static/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="../static/vendor/swiper/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Template Main CSS File -->
+    <link href="../static/css/main.css" rel="stylesheet" />
+
+    <!-- =======================================================
+    * Template Name: Yummy - v1.1.0
+    * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    {% include "header.html" %}
+    <!-- End Header -->
+    <div class="py-4 my-3"></div>
+
+    <!-- ======= Chef Section ======= -->
+    <section class="book-a-table pb-0 reservation-form-bg">
+      <div class="container">
+        <div class="section-header pb-0">
+          <h2>A great chef has to be passionate about food and cooking.</h2>
+          <p>Find Your Desire <span>Chef</span></p>
+        </div>
+
+        <div class="row g-0 d-flex align-items-center">
+          <!--Start Form-->
+          <form action="/findachef" method="post" class="php-email-form">
+            <div class="row gy-4">
+              <div class="col-lg-4 col-md-6"></div>
+              <div class="col-lg-4 col-md-6">
+                   <select class="form-select" aria-label="Select City" name="city">
+                      <option selected>Select City</option>
+                      <option value="Dhaka">Dhaka</option>
+                      <option value="Chattogram">Chattogram</option>
+                      <option value="Khulna">Khulna</option>
+                       <option  value="Sylhet">Sylhet</option>
+                       <option  value="Rajshahi">Rajshahi</option>
+                       <option  value="Rangpur">Rangpur</option>
+                       <option  value="Mymensingh">Mymensingh</option>
+                       <option  value="Barishal">Barishal</option>
+                       <option  value="Cumilla">Cumilla</option>
+                       <option  value="Gazipur">Gazipur</option>
+                    </select>
+                <br>
+                     <select class="form-select" aria-label="Select Type of chef" name="skill">
+                      <option selected>Select Type of chef</option>
+                      <option value="Head Chef (or Executive Chef)">Head Chef (or Executive Chef)</option>
+                      <option value="Sous Chef">Sous Chef</option>
+                      <option value="Station Chef (Chef de Partie)">Station Chef (Chef de Partie)</option>
+                      <option value="Expediter">Expediter</option>
+                      <option value="Kitchen Manager">Kitchen Manager</option>
+                      <option value="Pastry Chef (or Pâtissier)">Pastry Chef (or Pâtissier)</option>
+                      <option value="Saucier">Saucier</option>
+                      <option value="Fish Cook (or Poissonier)">Fish Cook (or Poissonier)</option>
+                      <option value="Vegetable Cook (or Entremetier)">Vegetable Cook (or Entremetier)</option>
+                      <option value="Meat Cook (or Rotisseur)">Meat Cook (or Rotisseur)</option>
+                      <option value="Pantry Chef (or Chef Garde Manger)">Pantry Chef (or Chef Garde Manger)</option>
+                      <option value="Commis Chef">Commis Chef</option>
+                    </select>
+              </div>
+                <br>
+                <div class="col-lg-4 col-md-6"></div>
+                <div class="col-lg-4 col-md-6"></div>
+                <div class="col-lg-4 col-md-6">
+                <p>For details know abuot all types of chef..!!! <a href="https://www.sfceurope.com/uk/blog/what-types-of-chefs-are-there-the-complete-list" target="_blank">Click</a> </p>
+                </div>
+              </div>
+
+            <div class="text-center">
+              <button class="my-5" type="submit">Find Chef</button>
+            </div>
+          </form>
+          <!-- End Form -->
+        </div>
+      </div>
+    </section>
+
+    <!--Chefs Section Start-->
+    <section class="chefs py-3">
+      <div class="container-fluid py-3">
+        <div class="section-header p-3">
+          <h2>
+            "People who love to eat are always the best people."
+            <br />
+            Being in the kitchen is all about creating new ideas and taking
+            risks.
+            <br />
+            A chef must always be willing to try something new.
+          </h2>
+          <p>Popular <span>Chefs</span> Across the Country</p>
+        </div>
+        <div class="row gy-4 mt-3">
+          <!-- Start Chefs Member Loop -->
+          {% for x in range(cnt) %}
+          <div
+            class="col-lg-3 col-md-4 d-flex align-items-stretch"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="chef-member">
+              <div class="member-img">
+                <img
+                  src="../static/img/chefs/chefs-1.jpg"
+                  class="img-fluid"
+                  alt=""
+                />
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>{{name[x]}}</h4>
+                <p>Type of Chef : {{skill[x]}}<br /> <b>Expected Salary/Month: </b> {{salary[x]}}<b> </br>From: </b>{{location[x]}},{{city[x]}}</p>
+                <p>{{description[x]}}</p>
+                <a href="/requestChef/{{name[x]}}" class="readmore"
+                  >Request Chefs<i class="fa fa-angle-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <!-- End Chefs Member Loop -->
+        </div>
+      </div>
+    </section>
+    <!--Chefs Section End-->
+
+    {% include "footer.html" %}
+    <a
+      href="#"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/vendor/aos/aos.js"></script>
+    <script src="../static/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="../static/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="../static/vendor/swiper/swiper-bundle.min.js"></script>
+    <script>
+      document.getElementById('findachef').className = 'active'
+    </script>
+
+    <!-- Template Main JS File -->
+    <script type="text/javascript" src="static/js/virtual-select.min.js"> </script>
+    <script type="text/javascript">
+          VirtualSelect.init({
+            ele: '#multi_option'
+          });
+      </script>
+    <script src="../static/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+
+  </body>
+</html>
