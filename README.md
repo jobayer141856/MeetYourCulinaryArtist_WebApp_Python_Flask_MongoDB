@@ -1,43 +1,20 @@
 #MeetYourCulinaryArtist
-This web application is about chefs. People can work here as a freelancer chef. A chef can create account to provide service when there is a call for him/her at household or in any occasion. People can hire chef and post interesting recipes.
+The world of cooking is explored in this online application. People have the opportunity to work here as independent chefs. When there is a need for a chef at home or at any other event, the chef may establish an account so that they can supply their services. People can employ chefs and upload fascinating recipes.
 
 ## Functionalities
-### User
-▪ User can create account in the system.
+1.	Login as user and chef.
 
-▪ They can update account information and change account password.
+2.	SignUp with verification by Gmail OTP as a user if the user is a chef, then join as a chef  
 
-▪ They can also request chefs by skills, our system will notify them using email by searching city name and skill.
+3.	Both users can update their information and change the password
 
-▪ They can also search a chef by location, see all our chefs and contact with chef.
 
-▪ They can also add blog, see others blog and delete their blog.
+4.	General users can request chefs by type and by searching by city and type.
 
-▪ They can get 24 hours support from the system.
-
-### Chef
-▪ Chefs can create their professional chef account in the system.
-
-▪ They can get 24 hours support from system.
-
-▪ They can communicate with user who will hire them.
-
-▪ If a user wants to hire a chef, all related chef will be notified through email.
-
-▪ They can also use the same functionality like other user.
-
-### System
-▪ System will show the available blogs.
-
-▪ System will verify user by OTP sent in email.
-
-▪ System will show the all available chefs in the database.
-
-▪ System will support user 24 hours.
-
-▪ System will show all events organized byMeetYourCulinaryArtist.
-
-▪ System will show the user feedback through testimonial.
+5.	Both users can also post a blog about fascinating recipes and see others' blogs and delete their own posted blog.
+6.	If any user requests a chef, then the chef will be notified by Gmail, and then the chef and requester can communicate.
+7.	Both users can post only once after registration, which can be done only from the home page.
+8.	Both users and also non-users can contact us through the website.
 
 ## Technologies
 
